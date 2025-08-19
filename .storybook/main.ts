@@ -16,7 +16,7 @@ const config: StorybookConfig = {
     '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
 
-  addons: ['@storybook/addon-onboarding', '@storybook/addon-links', {
+  addons: ['@storybook/addon-links', {
     name: getAbsolutePath('storybook-addon-rslib'),
   }, getAbsolutePath("@storybook/addon-docs")],
 

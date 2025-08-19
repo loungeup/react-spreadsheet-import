@@ -7,7 +7,7 @@ const SELECT_COLUMN_KEY = "select-row"
 function SelectFormatter() {
   const { isRowSelected } = useRowSelection()
 
-  return <Radiomark size="sm" cursor="pointer" aria-label="Select" checked={isRowSelected} />
+  return <Radiomark size="sm" cursor="pointer" aria-label="Select" role="radio" checked={isRowSelected} />
 }
 
 export const SelectColumn = {

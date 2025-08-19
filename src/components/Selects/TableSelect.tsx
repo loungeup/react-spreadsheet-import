@@ -39,7 +39,7 @@ export const TableSelect = (props: Props) => {
         </Select.IndicatorGroup>
       </Select.Control>
       <Portal>
-        <Select.Positioner css={{ zIndex: "modal !important" }}>
+        <Select.Positioner css={{ zIndex: "popover !important" }}>
           <Select.Content>
             {collection.items.map((item) => (
               <Select.Item item={item} key={item.value}>

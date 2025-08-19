@@ -1,4 +1,4 @@
-import merge from "lodash/merge"
+import merge from "lodash.merge"
 
 import { ModalWrapper } from "@/components/ModalWrapper"
 import { Providers } from "@/components/ui/Providers"

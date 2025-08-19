@@ -57,7 +57,7 @@ export const TemplateColumn = <T extends string>({ column, onChange, onSubChange
             <Flex width="100%">
               <Accordion.Root collapsible defaultValue={["sub-matching"]} variant="plain">
                 <Accordion.Item value="sub-matching">
-                  <Accordion.ItemTrigger>
+                  <Accordion.ItemTrigger data-testid="accordion-button">
                     <Accordion.ItemIndicator />
                     <Box textAlign="left">
                       <Text css={styles.selectColumnAccordionLabel}>

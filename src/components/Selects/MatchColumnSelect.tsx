@@ -25,14 +25,14 @@ export const MatchColumnSelect = ({ onChange, value, options, placeholder, name 
       onInputValueChange={(e) => filter(e.inputValue)}
       value={value ? [value.value] : []}
       onValueChange={(e) => onChange(e.items[0])}
-      aria-label={name}
       openOnClick
+      positioning={{ strategy: "fixed", hideWhenDetached: true }}
     >
       <Combobox.Control>
-        <Combobox.Input placeholder={placeholder} />
+        <Combobox.Input placeholder={placeholder} aria-label={name} />
         <Combobox.IndicatorGroup>
-          <Combobox.ClearTrigger />
-          <Combobox.Trigger />
+          <Combobox.ClearTrigger data-testid="clear-trigger" />
+          <Combobox.Trigger data-testid="trigger" />
         </Combobox.IndicatorGroup>
       </Combobox.Control>
       <Combobox.Positioner>

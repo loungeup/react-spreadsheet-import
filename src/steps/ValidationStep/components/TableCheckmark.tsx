@@ -8,6 +8,7 @@ export function TableCheckmark(props: RenderCellProps<Data<string> & Meta, unkno
   return (
     <Checkmark
       cursor="pointer"
+      role="checkbox"
       aria-label="Select row"
       checked={isRowSelected}
       onClick={(event) =>
