@@ -2,17 +2,13 @@
   "name": "react-spreadsheet-import",
   "version": "5.0.0",
   "description": "React spreadsheet import for xlsx and csv files with column matching and validation",
-  "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    }
-  },
+  "main": "./dist-commonjs/index.js",
   "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./types/index.d.ts",
   "files": [
-    "dist"
+    "dist-commonjs",
+    "dist",
+    "types"
   ],
   "scripts": {
     "start": "storybook dev -p 6006",
@@ -20,19 +16,19 @@
     "test:e2e": "npx playwright test",
     "test:chromatic": "npx chromatic",
     "ts": "tsc",
+    "format": "prettier --write .",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "prebuild": "npm run clean",
+    "postinstall": "npm run theme",
     "build": "rslib build",
     "build-storybook": "storybook build -o docs-build",
-    "dev": "rslib build --watch",
-    "format": "prettier --write .",
-    "storybook": "storybook dev",
     "test": "vitest run",
     "release:patch": "git checkout master && git pull && npm run test:unit && npm run ts && npm run build && npm version patch && git add -A && git push && git push --tags && npm publish",
     "release:minor": "git checkout master && git pull && npm run test:unit && npm run ts && npm run build && npm version minor && git add -A && git push && git push --tags && npm publish",
     "release:major": "git checkout master && git pull && npm run test:unit && npm run ts && npm run build && npm version major && git add -A && git push && git push --tags && npm publish",
-    "clean": "rimraf dist dist-commonjs types"
+    "clean": "rimraf dist dist-commonjs types",
+    "theme": "npx @chakra-ui/cli typegen ./src/theme/theme.ts"
   },
   "repository": {
     "type": "git",
@@ -57,6 +53,22 @@
     "url": "https://github.com/UgnisSoftware/react-spreadsheet-import/issues"
   },
   "homepage": "https://github.com/UgnisSoftware/react-spreadsheet-import#readme",
+  "peerDependencies": {
+    "@chakra-ui/react": ">=3.21.0",
+    "@emotion/react": ">=11.14.0",
+    "next-themes": ">=0.4.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0",
+    "react-icons": ">=5.0.0"
+  },
+  "dependencies": {
+    "js-levenshtein": "^1.1.6",
+    "lodash.merge": "^4.6.2",
+    "lodash.uniqby": "^4.7.0",
+    "react-data-grid": "7.0.0-beta.57",
+    "uuid": "^11.1.0",
+    "xlsx-ugnis": "^0.20.3"
+  },
   "devDependencies": {
     "@playwright/test": "^1.54.2",
     "@rsbuild/core": "1.4.2",
@@ -92,22 +104,6 @@
     "ts-essentials": "^10.1.1",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
-  },
-  "peerDependencies": {
-    "@chakra-ui/react": ">=3.21.0",
-    "@emotion/react": ">=11.14.0",
-    "next-themes": ">=0.4.0",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0",
-    "react-icons": ">=5.0.0"
-  },
-  "dependencies": {
-    "js-levenshtein": "^1.1.6",
-    "lodash.merge": "^4.6.2",
-    "lodash.uniqby": "^4.7.0",
-    "react-data-grid": "7.0.0-beta.57",
-    "uuid": "^11.1.0",
-    "xlsx-ugnis": "^0.20.3"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint",

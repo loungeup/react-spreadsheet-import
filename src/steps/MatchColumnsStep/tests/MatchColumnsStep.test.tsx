@@ -20,9 +20,6 @@ import { translations } from "@/translations"
 import { StepType } from "@/steps/types"
 import { chakraRender } from "@/tests/test-utils"
 import { Providers } from "@/components/ui/Providers"
-import { Combo } from "@/components/combobox"
-
-const SELECT_DROPDOWN_ID = "react-select-dropdown-wrapper"
 
 const fields: Fields<any> = [
   {
@@ -548,7 +545,6 @@ describe("Match Columns general tests", () => {
       <Providers rsiValues={{ ...mockRsiValues, fields }}>
         <ModalWrapper isOpen={true} onClose={() => {}}>
           <MatchColumnsStep headerValues={header} data={data} onContinue={onContinue} />
-          <div id={SELECT_DROPDOWN_ID} />
         </ModalWrapper>
       </Providers>,
     )
@@ -580,7 +576,6 @@ describe("Match Columns general tests", () => {
       <Providers rsiValues={{ ...mockRsiValues, fields }}>
         <ModalWrapper isOpen={true} onClose={() => {}}>
           <MatchColumnsStep headerValues={header} data={data} onContinue={onContinue} />
-          <div id={SELECT_DROPDOWN_ID} />
         </ModalWrapper>
       </Providers>,
     )
@@ -634,7 +629,6 @@ describe("Match Columns general tests", () => {
       <Providers rsiValues={{ ...mockRsiValues, fields: enumFields }}>
         <ModalWrapper isOpen={true} onClose={() => {}}>
           <MatchColumnsStep headerValues={header} data={data} onContinue={onContinue} />
-          <div id={SELECT_DROPDOWN_ID} />
         </ModalWrapper>
       </Providers>,
     )
@@ -756,7 +750,6 @@ describe("Match Columns general tests", () => {
       <Providers rsiValues={{ ...mockRsiValues, fields }}>
         <ModalWrapper isOpen={true} onClose={() => {}}>
           <MatchColumnsStep headerValues={header} data={data} onContinue={onContinue} />
-          <div id={SELECT_DROPDOWN_ID} />
         </ModalWrapper>
       </Providers>,
     )
